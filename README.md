@@ -27,3 +27,5 @@ By combing long-term memory, retrieval-augmented reasoning, and multi-agent coor
 >Parent: "How has my baby's sleep changed over the past month?"
 >TinyPilot: "Retrieve historical sleep records, analyzes trends, compares recent patterns with the child's baseline behavior, and generates a personazlied summary".
 
+## Technical Highlights
+
