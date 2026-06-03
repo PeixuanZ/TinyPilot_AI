@@ -41,6 +41,20 @@ Stores
   "date":"2026-06-01"
 }
 ```
+Supports:
+- Semantic retrieval
+- Timeline retrieval
+- Event search
+- Personalized context generation
 
+2. Reasoning Agent
+The agent performs multi-step reasoning:
+```mermaid
+flowchart LR
+    A[User Question] --> B[Memory Retrieval]
+    B --> C[Trend Analysis]
+    C --> D[LLM Reasoning/Risk Detection]
+    D --> E[Recommendation Generation]
+```
  
 
