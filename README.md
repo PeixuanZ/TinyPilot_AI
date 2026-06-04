@@ -27,7 +27,6 @@ By combing long-term memory, retrieval-augmented reasoning, and multi-agent coor
 >Parent: "How has my baby's sleep changed over the past month?"
 >TinyPilot: "Retrieve historical sleep records, analyzes trends, compares recent patterns with the child's baseline behavior, and generates a personazlied summary".
 
-## System Architecture
 
 ## Core Components
 
@@ -126,7 +125,37 @@ This memory layer serves as the shared knowledge foundation for all TinyPilot ag
 2. Context-Aware Reasoning. E.g. "Is my baby's sleep getting worse"
 3. Multi-step agent planning. E.g. "What should I focus on this week"
 4. Proactive assistance. E.g. Automatic reminders and suggestions without explicit user requests.
+## System Architecture
+```mermaid
+flowchart TD
+  U[Parent User]
+  O[Orchestrator Agent]
+  M[Memory Agent]
+  A[Analytics Agent]
+  P[Planning Agent]
+  S[Response Synthesizer]
+  L[InfantGPT Memory Layer]
+  DB[(Structured Event Store)]
+  V[(Vector Database)]
 
+  U --> O
+  O --> M
+  O --> A
+  O --> P
+
+  M --> L
+  A --> L
+  P --> L
+
+  L --> DB
+  L --> V
+
+  M --> S
+  A --> S
+  P --> S
+
+  S --> U
+```
 # Future Extensions
 **Multimodal Understanding**
 Input: Baby photos, growth charts, pediatric reports.
