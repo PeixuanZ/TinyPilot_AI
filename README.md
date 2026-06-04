@@ -30,9 +30,70 @@ By combing long-term memory, retrieval-augmented reasoning, and multi-agent coor
 ## System Architecture
 
 ## Core Components
-1. Long-term Memory
-Build on InfantGPT's memory infrastructure.
 
+### 1. Orchestrator Agent
+
+Responsiblity: acts as the central coordinator of the system
+
+Tasks: 
+- interpret user intent
+- Select appropriate downstream agents
+- Manage multi-agent workflows
+- Aggregate agent outputs
+- Generate final response
+
+### 2. Memory Agent
+
+Responsiblity: retrieves personalized historical information from InfantGPT.
+
+Tasks:
+- Semantic search
+- Timeline retrieval
+- Event lookup
+- Context summarization
+
+### 3. Analytics Agent
+
+Responsiblity: detects trends and patterns from historical records.
+
+Tasks:
+- Sleep trend analysis
+- Feeding diversity analysis
+- Growth tracking
+- Milestone progression analysis
+
+Example outputs
+> Night wakings increased by 35% over the past two weeks.
+
+### 4. Planning Agent
+
+Responsibility: generates actionable recommendations and future plans.
+
+Tasks:
+- Appointment reminders
+- Vaccination reminders
+- Feeding suggestions
+- Developmental activity recommendations
+
+Example
+> Upcoming pediatric appointment in 3 days.
+>
+### 5. InfantGPT Memory Layer
+Responsiblity: provides persistent long-term memory for the system.
+
+Components:
+- Structured Event Store
+- Vectpr Database
+- Retrieval Engine
+
+Supported Memories:
+- Feeding records
+- Sleep records
+- Growth measurements
+- Medical visits
+- Developmental milestones
+- Parent notes
+  
 Stores
 ```json
 {
@@ -41,20 +102,39 @@ Stores
   "date":"2026-06-01"
 }
 ```
-Supports:
-- Semantic retrieval
-- Timeline retrieval
-- Event search
-- Personalized context generation
 
-2. Reasoning Agent
-The agent performs multi-step reasoning:
-```mermaid
-flowchart LR
-    A[User Question] --> B[Memory Retrieval]
-    B --> C[Trend Analysis]
-    C --> D[LLM Reasoning/Risk Detection]
-    D --> E[Recommendation Generation]
-```
- 
+This memory layer serves as the shared knowledge foundation for all TinyPilot agents. 
+
+## Technologies
+- LLM layer
+  - GPT-4o / GPT -5
+  - Function Calling
+  - Structured Outputs
+- Agent Framework
+  - PydanticAI
+  - LangGraph
+- Memory Layer
+  - ChromaDB
+  - SQLite
+  - Vector Search
+- Backend
+  - FastAPI
+- Fronted
+  - Streamlit
+## Key AI features
+1. Personalized Memory Retrieval. E.g. "What foods has my baby tried"
+2. Context-Aware Reasoning. E.g. "Is my baby's sleep getting worse"
+3. Multi-step agent planning. E.g. "What should I focus on this week"
+4. Proactive assistance. E.g. Automatic reminders and suggestions without explicit user requests.
+
+# Future Extensions
+**Multimodal Understanding**
+Input: Baby photos, growth charts, pediatric reports.
+
+**Smart Camera Integration**
+Track: Bottle locations, toy locations, daily activities.
+
+**Family Knowledge Graph**
+Connect: Events, appointments, milestone, photos, medical nots, family members.
+
 
