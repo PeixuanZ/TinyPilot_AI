@@ -1,0 +1,24 @@
+# LLM
+ollama
+
+# Agent framework
+pydantic-ai
+
+# Memory layer
+chromadb
+SQLAlchemy
+
+# Backend
+fastapi
+uvicorn
+
+# Frontend
+streamlit
+
+# Utils
+python-dotenv
+rich
+tqdm
+
+# Testing
+pytest
